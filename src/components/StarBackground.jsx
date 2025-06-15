@@ -7,6 +7,14 @@ const StarBackground = () => {
   useEffect(() => {
     generateStart();
     generateMeteors();
+
+    const handleResize = () => {
+      generateStart();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const generateStart = () => {
