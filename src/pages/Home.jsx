@@ -4,6 +4,7 @@ import StarBackground from "../components/StarBackground";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Skills from "../components/Skills";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <main>
         <Hero />
         <About />
+        <Skills />
       </main>
     </div>
   );
