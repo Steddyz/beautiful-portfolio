@@ -1,6 +1,6 @@
 import React from "react";
 import Skills from "./Skills";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
@@ -110,6 +110,16 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="https://github.com/Steddyz"
+            target="_blank"
+            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+          >
+            Check my Github <Github size={16} />
+          </a>
         </div>
       </div>
     </section>
