@@ -10,12 +10,25 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Contacts = () => {
+  const { toast } = useToast();
+  const [isSubmit, setIsSubmit] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setTimeout(() => {}, 1500);
+    setIsSubmit(true);
+
+    setTimeout(() => {
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for your message. I'l get back to you soon.",
+      });
+      setIsSubmit(false);
+    }, 1500);
   };
 
   return (
@@ -96,7 +109,7 @@ const Contacts = () => {
           </div>
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send A Message</h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -146,11 +159,12 @@ const Contacts = () => {
               </div>
               <button
                 type="submit"
+                disabled={isSubmit}
                 className={cn(
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}
               >
-                Send Message
+                {isSubmit ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
             </form>
